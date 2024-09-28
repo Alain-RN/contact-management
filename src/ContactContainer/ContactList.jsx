@@ -11,8 +11,8 @@ function ContactList() {
         {/* <h1>Contacts</h1> */}
         <div className=" d-flex align-items-center justify-content-betwen">
           <SearchBarre />
-          <div className="mb-3 mt-2 btn-add d-flex align-items-center justify-content-center">
-            Add
+          <div className="mb-3 mt-2 btn-add d-xxl-none d-flex align-items-center justify-content-center">
+            Ajouter
             <img src={Add}  className="add-contact" />
           </div>
         </div>
