@@ -11,7 +11,7 @@ function ContactForm() {
           <Input name="Contact-name" type="text" holder="name" />
           <Input name="Email" type="email" holder="Exemple@gmail.com" />
           <Input name="Telephone" type="tel" holder="01234567" />
-          <div className="buttons-contact d-flex gap-3 pt-4">
+          <div className="buttons-contact d-flex gap-4 pt-3">
             <Button name="Enregistrer" className = "btn-enr"/>
             <Button name="Annuler" className = "btn-annule"/>
           </div>
