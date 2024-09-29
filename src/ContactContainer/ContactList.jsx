@@ -3,7 +3,7 @@ import SearchBarre from "../components/searchContactBarre/SearchBarre";
 import List from "../components/list/List";
 import Add from "../assets/add.png"
 
-function ContactList() {
+function ContactList(props) {
 
   return (
     <div className="w-100 container-list h-100 p-5 " >
@@ -16,7 +16,7 @@ function ContactList() {
             <img src={Add}  className="add-contact" />
           </div>
         </div>
-        <List></List>
+        <List setDrop={props.setDrop} setValue={props.setValue}></List>
       </div>
     </div>
   );
