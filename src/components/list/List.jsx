@@ -1,7 +1,15 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+import React, { useContext } from 'react';
+import { ContactContext } from '../../context/ContactContext';
 import ThreePts from "../../assets/three.png";
 
+
 function List(props) {
-  const fruits = ["Pomme", "Banane", "Orange", "Mangue"];
+
+  const { contacts } = useContext(ContactContext);
+  console.log(contacts)
+  
   return (
     <div className="list-contact">
       <table className="container mt-3">
@@ -14,22 +22,23 @@ function List(props) {
         </thead>
 
         <tbody>
-          { fruits.length != 0 ? (
-            fruits.map((fruit, index) => (
+          { contacts.length != 0 ? (
+            contacts.map((contact) => (
               // eslint-disable-next-line react/jsx-key
               <tr className="element-list">
-                <td className="ps-4">{fruit + " " + index}</td>
-                <td>Alain@gmail.com</td>
-                <td>244414</td>
+                <td className="ps-4">{contact.nom}</td>
+                <td>{contact.email}</td>
+                <td>{contact.telephone}</td>
                 <td className="d-flex three-p">
                   <img
                     src={ThreePts}
                     className="three-p-icon"
                     alt=""
                     onClick={() => {
-                      props.setValue(fruit);
+                      props.setValue(contact._id);
                       props.setDrop(true);
-                    }}
+                    }
+                  }
                   />
                 </td>
               </tr>

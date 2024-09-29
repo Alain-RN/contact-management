@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext, useState } from 'react';
 import SearchBarre from "../components/searchContactBarre/SearchBarre";
 import List from "../components/list/List";
 import Add from "../assets/add.png"
 
+
 function ContactList(props) {
+
+
 
   return (
     <div className="w-100 container-list h-100 p-5 " >
