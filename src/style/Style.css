@@ -126,7 +126,10 @@ html, body {
     background: #F5F5F5;
     width: 60%;
 }
+.list-contact {
 
+    /* overflow-y: scroll; */
+}
 .list-title {
     color: #2196F3;
 }
@@ -137,7 +140,13 @@ html, body {
     height: 62px;
     border: 1px solid #E0E0E0;
 }
-
+.right {
+    height: 38px;
+    /* border: 1px solid black; */
+    border-radius: 6px;
+    background: #E0E0E0;
+    cursor: pointer;
+}
 .element-list {
     color: #424242;
     height: 54px;
@@ -165,13 +174,14 @@ html, body {
 }
 .suppr {
     background: rgb(255, 65, 54);
+
 }
 .edit {
     background: rgb(0, 123, 255);
 }
 .popdown-container {
     width: 100%;
-    position: absolute;
+    position: fixed;
     display: flex;
     justify-content: center;
 }
@@ -180,8 +190,8 @@ html, body {
     padding-top: 42px;
     margin-top: 10px;
     background: #FFFFFF;
-    height: 190px;
-    width: 400px;
+    height: 170px;
+    width: 370px;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -214,13 +224,47 @@ html, body {
 }
 @media screen and (max-width : 600px) {
     .search{
-      width: 240px;
+      width: 200px;
       font-size: 14px;
+      height: 40px;
+    }
+    .list-table {
+        font-size: 13px;
+    }
+    .btn-add {
+        font-size: 13px;
+        height: 40px;
+        width: 120px;
+    }
+    .add-contact {
+        height: 14px;
+        width: 14px;
     }
   }
-  @media screen and (min-width: 601px) and (max-width: 800px){
+@media screen and (min-width: 601px) and (max-width: 800px) {
     .search{
       width: 360px; 
       font-size: 14px; 
     }
   }
+@media screen and (max-width: 1400px) {
+    .container-form {
+        /* background: #000; */
+        position: fixed;
+        right: 0;
+        height: 100%;
+        display: flex;
+        transition: ease 0.5s;
+        transform: translateX(100%);
+    }
+
+    .open {
+        transform: translateX(0);
+    }
+}
+
+@media  screen and (max-width: 900px) {
+    .container-form {
+        width: 100%;
+    }
+}

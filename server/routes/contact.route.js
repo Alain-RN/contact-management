@@ -9,4 +9,6 @@ router.get("/", controllerTab[0])
 
 router.post("/", controllerTab[1])
 
+router.delete("/:id", controllerTab[2])
+
 export default router

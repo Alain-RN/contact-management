@@ -11,8 +11,8 @@ function List(props) {
   console.log(contacts)
   
   return (
-    <div className="list-contact">
-      <table className="container mt-3">
+    <div>
+      <table className="container list-table mt-3">
         <thead>
           <tr className="list-head">
             <td className="ps-4">Nom</td>
@@ -21,7 +21,7 @@ function List(props) {
           </tr>
         </thead>
 
-        <tbody>
+        <tbody className="list-contact">
           { contacts.length != 0 ? (
             contacts.map((contact) => (
               // eslint-disable-next-line react/jsx-key

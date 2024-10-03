@@ -6,6 +6,7 @@ import axios from 'axios';
 
 export const ContactContext = createContext();
 
+const PORT = 5000
 
 export const ContactProvider = ({ children }) => {
   const [contacts, setContacts] = useState([]);
@@ -13,7 +14,7 @@ export const ContactProvider = ({ children }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/contact`);
+        const response = await axios.get(`http://localhost:${PORT}/api/contact`);
         setContacts(response.data);
       } catch (error) {
         console.error("Erreur lors de la récupération des contacts :", error);
@@ -25,15 +26,23 @@ export const ContactProvider = ({ children }) => {
 
   const addContact = async (contact) => {
     try {
-      const response = await axios.post(`http://localhost:5000/api/contact`, contact);
+      const response = await axios.post(`http://localhost:${PORT}/api/contact`, contact);
       setContacts((prevContacts) => [...prevContacts, response.data]);
     } catch (error) {
       console.error("Erreur lors de l'ajout du contact :", error);
     }
   };
 
+  const deleteContact = async (id) => {
+    try {
+      await axios.delete(`http://localhost:${PORT}/api/contact/${id}`)
+      setContacts(prevContacts => prevContacts.filter(contact => contact._id !== id));
+    } catch (error) {
+      console.error("Erreur lors de la suppression du contact :", error);
+    }
+  }
   return (
-    <ContactContext.Provider value={{ contacts, addContact }}>
+    <ContactContext.Provider value={{ contacts, addContact, deleteContact }}>
       {children}
     </ContactContext.Provider>
   );

@@ -6,7 +6,7 @@ import cors from "cors"
 import contactRoute from "./routes/contact.route.js"
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 const db = "contact-db"
 
 app.use(cors());
