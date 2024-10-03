@@ -9,7 +9,8 @@ function Input(props) {
         <div className='labelyInput'>
             <label htmlFor={props.name} className='contact-label'>{name}</label>
             <br />
-            <input 
+            <input
+                value={props.value}
                 onChange={(e)=>props.onChange(e.target.value)}
                 type={props.type} id={props.name}
                 className='contact-input'

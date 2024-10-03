@@ -17,7 +17,7 @@ function List(props) {
           <tr className="list-head">
             <td className="ps-4">Nom</td>
             <td>Email</td>
-            <td>Contacte</td>
+            <td>Telephone</td>
           </tr>
         </thead>
 

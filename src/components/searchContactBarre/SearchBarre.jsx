@@ -3,7 +3,7 @@ import searchIcone from "../../assets/search.png";
 
 function SearchBarre() {
   return (
-    <div className="search-bar d-flex mb-3 container mt-2">
+    <div className="d-flex container">
       <button type="button-search" className="search-button" >
         <img src={searchIcone} />
       </button>
