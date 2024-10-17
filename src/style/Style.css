@@ -130,10 +130,7 @@ html, body {
     background: #F5F5F5;
     width: 60%;
 }
-.list-contact {
 
-    /* overflow-y: scroll; */
-}
 .list-title {
     color: #2196F3;
 }
@@ -143,6 +140,15 @@ html, body {
     border-radius: 10px;
     height: 62px;
     border: 1px solid #E0E0E0;
+}
+.layer-updateform {
+    /* display: flex; */
+    padding-top: 100px;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background: #03030384;
 }
 .right {
     height: 38px;
@@ -226,6 +232,40 @@ html, body {
     right: 18px;
     top: 18px;
 }
+.updateform {
+    padding-top: 65px;
+    margin: auto;
+    border-radius: 12px;
+    background-color: #FFFFFF;
+    height: 620px;
+    width: 412px;
+    margin-block: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.updateform h1 {
+    color : rgb(0, 123, 255);
+    padding-bottom: 6%;
+}
+
+.updateform input {
+    width: 340px;
+}
+.updateform .btns-update-form {
+    width: 340px;
+    gap: 16px;
+    margin-top: 12px;
+    display: flex;
+    justify-content: flex-start;
+}
+.updateform .btn-update-form{
+    width: 100%;
+    font-weight: 550;
+    color: #FFFFFF;
+}
+
 @media screen and (max-width : 600px) {
     .search{
       width: 215px;

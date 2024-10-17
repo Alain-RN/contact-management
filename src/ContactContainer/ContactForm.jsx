@@ -8,6 +8,7 @@ import Button from "../components/button/Button";
 import Right from "../assets/right-arrow.png";
 
 function ContactForm(props) {
+  
 
   const { addContact } = useContext(ContactContext);
   const [nom, setNom] = useState("");
@@ -20,6 +21,7 @@ function ContactForm(props) {
     addContact(contact)
     handleCancel()
   }
+  
   const handleCancel = (e) => {
     setNom("");
     setEmail("");
@@ -31,7 +33,7 @@ function ContactForm(props) {
       className={`d-xxl-flex container-form ${props.open} contact-title  justify-content-center pt-5`}
     >
       <div className="">
-        
+
         <img src={Right} className="right d-xxl-none" onClick={() => {props.setOpen("")}}/>
         <h1 className="form-title pt-5">
           Ajoutez un contact
@@ -45,17 +47,16 @@ function ContactForm(props) {
           <div className="buttons-contact d-flex gap-4 pt-4">
             <Button
                name="Enregistrer" 
-               type = {'submit'} 
+               type = {'submit'}
                className="btn-enr" 
                />
 
             <Button 
-                name="Annuler" 
+                name="Annuler"
                 handleAction = {handleCancel}
-                className="btn-annule" 
+                className="btn-annule"
                 type = "button"
                 />
-
           </div>
         </form>
       </div>

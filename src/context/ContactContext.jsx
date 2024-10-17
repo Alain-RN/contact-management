@@ -9,7 +9,9 @@ export const ContactContext = createContext();
 const PORT = 5000
 
 export const ContactProvider = ({ children }) => {
+
   const [contacts, setContacts] = useState([]);
+  const [contactById, setContactById] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,6 +41,15 @@ export const ContactProvider = ({ children }) => {
       setContacts(prevContacts => prevContacts.filter(contact => contact._id !== id));
     } catch (error) {
       console.error("Erreur lors de la suppression du contact :", error);
+    }
+  }
+
+  const getContact = async (id) => {
+    try {
+      const response = await axios.get(`http://localhost:${PORT}/api/contact/${id}`)
+      setContactById(response.data);
+    } catch (error) {
+      console.error("Erreur lors de la recuperation du contact :", error);
     }
   }
   return (

@@ -14,6 +14,14 @@ const getAllContacts = async (req, res) => {
     
     }
 }
+const getContact = async (req, res) => {
+    try {
+        const { id } = req.params
+        const contact = await Contact.findById(id)
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+}
 const postContact = async (req, res) => {
     try {
         const contact = new Contact(req.body);

@@ -2,16 +2,14 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-function Button(props) {
-
+function Button({type, className, handleAction, name}) {
     return (
         <button 
-        
-            type={props.type}
-            className={'button-contact '+ props.className}
-            onClick={props.handleAction}
+            type={type}
+            className={'button-contact '+ className}
+            onClick={handleAction}
              >
-            {props.name}
+            {name}
         </button>
     );
 }

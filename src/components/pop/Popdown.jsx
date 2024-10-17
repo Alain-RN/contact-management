@@ -6,15 +6,22 @@ import { ContactContext } from "../../context/ContactContext.jsx";
 import Close from "../../assets/close-button.png"
 
 // eslint-disable-next-line react/prop-types
-function Popdown({drop, value, setDrop, setValue}) {
+function Popdown({drop, value, setDrop, setValue, setUpdate, update}) {
   const { deleteContact } = useContext(ContactContext)
   const handleDelete = () => {
-      deleteContact(value)
+      deleteContact(true)
       setDrop(false)
+  }
+
+  const handleUpdate = () => {
+    setDrop(false)
+    setUpdate(true)
+    // alert(update)
   }
   return (
      
     <div className={`popdown-container ${drop ? "popdown-down" : "popdown-up"}`}>
+      
       <div className="popdown">
 
         <img src={Close} className="icone" 
@@ -22,11 +29,10 @@ function Popdown({drop, value, setDrop, setValue}) {
           setDrop(false)
           setValue("");
           }}/>
-
         <p>Que voulez-vous faire ?</p>
         <div className="popdown-buttons d-flex gap-3">
           <Button name="Supprimer" className="suppr" handleAction={handleDelete}/>
-          <Button name="Editer" className="edit"></Button>
+          <Button name="Editer" className="edit" handleAction={handleUpdate}></Button>
         </div>
       </div>
     </div>
