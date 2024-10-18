@@ -22,6 +22,17 @@ const getContact = async (req, res) => {
         res.status(500).json({ message: error.message })
     }
 }
+const updateContact = async (req, res) => {
+    try {
+        const { id } = req.params
+        const updatedContact = await Contact.findByIdAndUpdate(id, req.body)
+        res.status(200).json(updatedContact)
+    
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    
+    }
+}
 const postContact = async (req, res) => {
     try {
         const contact = new Contact(req.body);
@@ -47,7 +58,9 @@ const deleteContact = async (req, res) => {
 const control = [
     getAllContacts,
     postContact,
-    deleteContact
+    deleteContact,
+    updateContact,
+    getContact
 ]
 export default control
 

@@ -8,7 +8,7 @@ import Button from "../components/button/Button";
 import Right from "../assets/right-arrow.png";
 
 function ContactForm(props) {
-  
+
 
   const { addContact } = useContext(ContactContext);
   const [nom, setNom] = useState("");
@@ -50,7 +50,7 @@ function ContactForm(props) {
                type = {'submit'}
                className="btn-enr" 
                />
-
+               
             <Button 
                 name="Annuler"
                 handleAction = {handleCancel}

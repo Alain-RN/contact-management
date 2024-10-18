@@ -37,6 +37,12 @@ function List(props) {
                     onClick={() => {
                       props.setValue(contact._id);
                       props.setDrop(true);
+                      props.setUpdateContacte({
+                        id: contact._id,
+                        nom: contact.nom,
+                        email: contact.email,
+                        telephone: contact.telephone,
+                      })
                     }
                   }
                   />

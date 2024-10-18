@@ -238,7 +238,7 @@ html, body {
     border-radius: 12px;
     background-color: #FFFFFF;
     height: 620px;
-    width: 412px;
+    width: 420px;
     margin-block: auto;
     display: flex;
     flex-direction: column;
@@ -320,5 +320,15 @@ html, body {
 @media  screen and (max-width: 900px) {
     .container-form {
         width: 100%;
+    }
+    .updateform input {
+        width: 300px;
+    }
+    .updateform {
+        width: 95%;
+        /* height: 92%; */
+    }
+    .layer-updateform {
+        padding-top: 24px;
     }
 }

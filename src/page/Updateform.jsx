@@ -1,19 +1,58 @@
-import React, { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/prop-types */
+import React, { useState, useEffect, useContext } from "react";
 import Input from "../components/input/Input";
 import Button from "../components/button/Button";
+import { ContactContext } from "../context/ContactContext";
 
-function Updateform({ update, setUpdate }) {
+function Updateform({ update, setUpdate, setUpdateContacte, updateContact, idvalue }) {
+
+  const { maj, setReload, reload } = useContext(ContactContext)
+  
   const [nom, setNom] = useState("");
   const [email, setEmail] = useState("");
   const [telephone, setTelephone] = useState("");
-  const handleUpdate = () => {
+  const [id, setId] = useState("");
+
+  useEffect(() => {
+    if (updateContact) {
+      setNom(updateContact.nom || "");
+      setEmail(updateContact.email || "");
+      setTelephone(updateContact.telephone || "");
+      setId(idvalue)
+    }
+  }, [updateContact]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(nom !== "" && telephone !=="" && email !== "" ){
+      maj(id ,{
+        nom : nom,
+        email : email,
+        telephone : telephone,
+      })
+      setReload(!reload)
+      // maj(id)
+      setUpdate(false)
+    }
+
+  }
+
+  const handleCancel = () => {
     setUpdate(false);
+    setUpdateContacte({
+      id: "",
+      nom: "",
+      email: "",
+      telephone: "",
+    })
+    // alert(id)
   };
   return (
     <>
       {
         update && <div className={`layer-updateform`}>
-          <form className="updateform">
+          <form className="updateform" onSubmit={handleSubmit}>
             <h1>Modifier le contact</h1>
             <Input
               value={nom}
@@ -40,12 +79,13 @@ function Updateform({ update, setUpdate }) {
             <div className="btns-update-form">
               <Button
                 handleAction={""}
-                type={"button"}
+                type={"submit"}
                 className={"edit btn-update-form"}
                 name={"modifier"}
               ></Button>
+
               <Button
-                handleAction={handleUpdate}
+                handleAction={handleCancel}
                 type={"button"}
                 className={"btn-annule btn-update-form"}
                 name={"annuler"}

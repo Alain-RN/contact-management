@@ -7,8 +7,6 @@ import Add from "../assets/add.png"
 
 function ContactList(props) {
 
-
-
   return (
     <div className="w-100 container-list h-100 p-4 " >
       <div className="container p-md-3 p-0">
@@ -23,7 +21,13 @@ function ContactList(props) {
             <img src={Add}  className="add-contact"/>
           </div>
         </div>
-        <List setDrop={props.setDrop} setValue={props.setValue}></List>
+
+        <List 
+          setDrop={props.setDrop} 
+          setValue={props.setIdvalue}  
+          setUpdateContacte={props.setUpdateContacte}>
+        </List>
+        
       </div>
     </div>
   );

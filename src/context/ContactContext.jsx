@@ -12,6 +12,7 @@ export const ContactProvider = ({ children }) => {
 
   const [contacts, setContacts] = useState([]);
   const [contactById, setContactById] = useState([]);
+  const [reload, setReload] = useState(true)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,9 +23,8 @@ export const ContactProvider = ({ children }) => {
         console.error("Erreur lors de la récupération des contacts :", error);
       }
     };
-
     fetchData();
-  }, []);
+  }, [reload]);
 
   const addContact = async (contact) => {
     try {
@@ -44,16 +44,30 @@ export const ContactProvider = ({ children }) => {
     }
   }
 
-  const getContact = async (id) => {
+  // const getContact = async (id) => {
+  //   try {
+  //     const response = await axios.get(`http://localhost:${PORT}/api/contact/${id}`)
+  //     setContactById(response.data);
+  //   } catch (error) {
+  //     console.error("Erreur lors de la recuperation du contact :", error);
+  //   }
+  // }
+
+  const maj = async (id, contact) => {
     try {
-      const response = await axios.get(`http://localhost:${PORT}/api/contact/${id}`)
-      setContactById(response.data);
+      const response = await axios.put(`http://localhost:${PORT}/api/contact/${id}`, contact);
+
+      setContacts(
+        prevContacts => prevContacts.filter(contact => contact._id === id? contact:contact)
+      );
+      console.log("Contact mis à jour avec succès :", response.data);
     } catch (error) {
-      console.error("Erreur lors de la recuperation du contact :", error);
+      console.error("Erreur lors de la mise à jour du contact :", error.response ? error.response.data : error.message);
     }
-  }
+  };
+
   return (
-    <ContactContext.Provider value={{ contacts, addContact, deleteContact }}>
+    <ContactContext.Provider value={{ contacts, addContact, deleteContact, maj, setReload, reload}}>
       {children}
     </ContactContext.Provider>
   );
