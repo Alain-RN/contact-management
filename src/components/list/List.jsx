@@ -7,8 +7,8 @@ import ThreePts from "../../assets/three.png";
 
 function List(props) {
 
-  const { contacts } = useContext(ContactContext);
-  console.log(contacts)
+
+  const contacts  = props.filteredContacts;
   
   return (
     <div>
@@ -24,8 +24,7 @@ function List(props) {
         <tbody className="list-contact">
           { contacts.length != 0 ? (
             contacts.map((contact) => (
-              // eslint-disable-next-line react/jsx-key
-              <tr className="element-list">
+              <tr className="element-list" key={contact._id}>
                 <td className="ps-4">{contact.nom}</td>
                 <td>{contact.email}</td>
                 <td>{contact.telephone}</td>
